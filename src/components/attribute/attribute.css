@@ -1,0 +1,56 @@
+.attribute {
+    padding: 16px;
+}
+
+.attributeInner {
+    width: 200px;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.attributeText {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.attr {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.attr:hover {
+    background-color: #ffffff10;
+    border-radius: 5px;
+}
+
+.attrActive {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #ffffff50;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.attr>img {
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+}
+
+.attrActive>img {
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+}

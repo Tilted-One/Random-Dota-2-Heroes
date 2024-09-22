@@ -1,0 +1,146 @@
+.generate {
+    margin-top: 40px;
+}
+
+.generateInner {
+    display: flex;
+    justify-content: space-around;
+    padding: 32px;
+}
+
+.generateButton {
+    height: auto;
+    background: linear-gradient(80deg, #252728 0%, #101415 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 32px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.generateButton:hover {
+    background: none;
+    background-color: #ffffff10;
+}
+
+.generatedHero {
+    background: linear-gradient(80deg, #252728 0%, #101415 100%);
+    color: #fff;
+    border-radius: 8px;
+    padding: 0 24px 32px;
+    width: auto;
+    height: auto;
+}
+
+.generatedHeroTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 56px;
+}
+
+.generatedHeroTitle>h2 {
+    font-size: 20px;
+}
+
+.generatedHeroTitle>img {
+    width: 32px;
+    height: 32px;
+    margin-left: 16px;
+}
+
+.generatedHeroContent {
+    display: flex;
+    flex-direction: row;
+}
+
+.generatedHeroContent>div>img {
+    border-radius: 6px;
+}
+
+.heroInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 24px;
+}
+
+.heroInfoInner {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.heroInfoInner>div {
+    display: flex;
+    align-items: center;
+}
+
+.heroInfoInner>div>p {
+    text-align: center;
+    font-size: 16px;
+    margin: 0px;
+}
+
+.heroInfoInner>div:first-child {
+    margin-right: 32px;
+}
+
+.heroInfoInner>div>img {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+}
+
+.rolesInfo {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    justify-content: space-between;
+}
+
+.rolesInfoInner {
+    display: flex;
+    align-items: center;
+}
+
+.rolesInfoInner>img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    filter: invert(82.5%);
+}
+
+.rate {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 8px;
+}
+
+.rate>div {
+    display: flex;
+}
+
+.rate>div>p {
+    margin: 0;
+}
+
+.rate>div>p:first-child {
+    margin: 0 8px 0 0;
+}
+
+
+.rate>div>div {
+    display: flex;
+}
+
+.rate>div>div>p {
+    margin: 0;
+}
+
+.rate>div>div>p:first-child {
+    margin: 0 8px 0 0;
+}

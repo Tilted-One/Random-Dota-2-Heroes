@@ -1,0 +1,51 @@
+.attackType {
+    padding: 16px;
+}
+
+.attackTypeInner {
+    width: 100px;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.attackTypeText {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.attackTypeButt {
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+}
+
+.attackTypeButt>img {
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+}
+
+
+.attackTypeButt:hover {
+    background-color: #ffffff10;
+    border-radius: 5px;
+}
+
+.attackTypeButtActive {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #ffffff50;
+    border-radius: 5px;
+    cursor: pointer;
+}
