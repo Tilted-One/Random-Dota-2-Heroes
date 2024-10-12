@@ -1,34 +1,22 @@
 import React from 'react'
-
+import Button from '../button/Button'
 import Melee from '../../images/melee.svg'
 import Ranged from '../../images/ranged.svg'
 
 import style from './attackType.css'
-export default function AttackType({attackType, setAttackType}){
-    
+export default function AttackType({ attackType, setAttackType }) {
 
-    function attackTypeClick(event) {
-        const clickedButton = event.target;
-        const allButtons = document.querySelectorAll('.attackTypeButt');
-        allButtons.forEach((button) => {
-            if (button !== clickedButton) {
-                button.classList.remove('attackTypeButtActive')
-            }
-        })
-        clickedButton.classList.toggle('attackTypeButtActive')
-        setAttackType(clickedButton.getAttribute('value'))
-    }
-    return(
+    return (
         <div className='attackType'>
-                    <h3 className='attackTypeText'>attack type</h3>
-                    <div className='attackTypeInner'>
-                        <button value='Melee' className='attackTypeButt' title='Melee' onClick={attackTypeClick} >
-                            <img src={Melee} alt='Melee' ></img>
-                        </button>
-                        <button value='Ranged' className='attackTypeButt' title='Ranged' onClick={attackTypeClick}>
-                            <img src={Ranged} alt='Ranged' ></img>
-                        </button>
-                    </div>
-                </div>
+            <h3 className='attackTypeText'>attack type</h3>
+            <div className='attackTypeInner'>
+                <button value='Melee' className={`attackTypeButt ${(attackType == 'Melee' ? 'attackTypeButtActive' : '')}`} title='Melee' onClick={() => setAttackType(attackType == 'Melee' ? null : 'Melee')} >
+                    <img src={Melee} alt='Melee' ></img>
+                </button>
+                <button value='Ranged' className={`attackTypeButt ${(attackType == 'Ranged' ? 'attackTypeButtActive' : '')}`} title='Ranged' onClick={() => setAttackType(attackType == 'Ranged' ? null : 'Ranged')} >
+                    <img src={Ranged} alt='Ranged' ></img>
+                </button>
+            </div>
+        </div>
     )
 }

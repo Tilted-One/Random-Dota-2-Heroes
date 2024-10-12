@@ -7,39 +7,25 @@ import Universal from '../../images/hero_universal.png'
 
 import style from './attribute.css'
 
-export default function Attribute({attr, setAttr}) {
-    
+export default function Attribute({ attr, setAttr }) {
 
-    function attrClick(event) {
-        const clickedButton = event.target;
-        const allButtons = document.querySelectorAll('.attr');
-        allButtons.forEach((button) => {
-            if (button !== clickedButton) {
-                button.classList.remove('attrActive');
-            }
-        });
-        clickedButton.classList.toggle('attrActive');
-
-        setAttr(clickedButton.getAttribute('value'));
-    }
-
-    return(
+    return (
         <div className='attribute'>
-                    <h3 className='attributeText'>attribute</h3>
-                    <div className='attributeInner'>
-                        <button value='all' onClick={attrClick} className='attr' title='Universal'>
-                            <img src={Universal} alt='Universal_Attr'></img>
-                        </button>
-                        <button value='str' onClick={attrClick} className='attr' title='Strength'>
-                            <img src={Strength} alt='Strength_Attr'></img>
-                        </button>
-                        <button value='agi' onClick={attrClick} className='attr' title='Agility'>
-                            <img src={Agility} alt='Agility_Attr'></img>
-                        </button>
-                        <button value='int' onClick={attrClick} className='attr' title='Intelligence'>
-                            <img src={Intelligence} alt='Intelligence_Attr'></img>
-                        </button>
-                    </div>
-                </div>
+            <h3 className='attributeText'>attribute</h3>
+            <div className='attributeInner'>
+                <button value='all' onClick={() => setAttr(attr == 'all' ? null : 'all')} className={`attr ${(attr == 'all' ? 'attrActive' : '')}`} title='Universal'>
+                    <img src={Universal} alt='Universal_Attr'></img>
+                </button>
+                <button value='str' onClick={() => setAttr(attr == 'str' ? null : 'str')} className={`attr ${(attr == 'str' ? 'attrActive' : '')}`} title='Strength'>
+                    <img src={Strength} alt='Strength_Attr'></img>
+                </button>
+                <button value='agi' onClick={() => setAttr(attr == 'agi' ? null : 'agi')} className={`attr ${(attr == 'agi' ? 'attrActive' : '')}`} title='Agility'>
+                    <img src={Agility} alt='Agility_Attr'></img>
+                </button>
+                <button value='int' onClick={() => setAttr(attr == 'int' ? null : 'int')} className={`attr ${(attr == 'int' ? 'attrActive' : '')}`} title='Intelligence'>
+                    <img src={Intelligence} alt='Intelligence_Attr'></img>
+                </button>
+            </div>
+        </div>
     )
 }

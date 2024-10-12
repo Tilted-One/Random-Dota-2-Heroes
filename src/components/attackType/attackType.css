@@ -49,3 +49,16 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.attackTypeButtActive >img {
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+}
+@media screen and (max-width: 425px) {
+        .attackType{
+            padding: 0;
+        }
+        .attackTypeInner{
+            height: 32px;
+        }
+    }

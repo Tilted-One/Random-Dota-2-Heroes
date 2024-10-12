@@ -54,3 +54,11 @@
     height: 32px;
     pointer-events: none;
 }
+@media screen and (max-width: 768px) {
+    .attribute{
+        padding: 0;
+    }
+    .attributeInner{
+        height: 32px;
+    }
+}

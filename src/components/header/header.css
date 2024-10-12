@@ -1,4 +1,6 @@
-header {}
+header {
+    height: auto;
+}
 
 .title {
     color: #fff;
@@ -9,4 +11,19 @@ header {}
     display: flex;
     justify-content: space-around;
     background: linear-gradient(80deg, #252728 0%, #101415 100%);
+}
+
+@media screen and (max-width: 768px) {
+    header{
+        padding: 8px;
+    }
+    .stats{
+        padding: 8px 0;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        justify-content: center;
+        border-radius: 12px;
+        
+    }
 }

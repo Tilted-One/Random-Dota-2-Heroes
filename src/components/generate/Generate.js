@@ -19,12 +19,24 @@ import Escape from '../../images/escape_icon.webp'
 import Pusher from '../../images/pusher_icon.webp'
 import Initiator from '../../images/initiator_icon.webp'
 
-export default function Data({ attackType, setAttackType, attr, setAttr, mainRole, setMainRole, role, setRole }) {
+const attrImg = {
+    'agi': Agility,
+    'all': Universal,
+    'str': Strength,
+    'int': Intelligence
+}
+const attrTitle = {
+    'agi': 'Agility',
+    'all': 'Universal',
+    'str': 'Strength',
+    'int': 'Intelligence'
+}
+
+
+export default function Data({ attackType, attr, mainRole, role }) {
 
     const [data, setData] = React.useState(null)
     const [randomHero, setRandomHero] = React.useState(null)
-
-    const [filteredData, setFilteredData] = React.useState(null)
 
     React.useEffect(() => {
         fetch('https://api.opendota.com/api/heroStats')
@@ -34,127 +46,95 @@ export default function Data({ attackType, setAttackType, attr, setAttr, mainRol
             })
     }, [1])
 
-    React.useEffect(() => {
-        if (attackType != null) {
-            setFilteredData(
-                data.filter(prevData => {
-                    return prevData.attack_type === attackType;
-                }));
-            console.log(attackType)
-            console.log(filteredData)
-        }
-    }, [attackType])
-
-    React.useEffect(() => {
-
-        if (attr != null) {
-            console.log(attr)
-            setFilteredData(
-                data.filter(prevData => {
-                    return prevData.primary_attr === attr;
-                }));
-            console.log(filteredData)
-        }
-    }, [attr])
-
-    React.useEffect(() => {
-        if (mainRole != null) {
-            console.log(mainRole)
-            setFilteredData(
-                data.filter(prevData => {
-                    return prevData.roles.includes(mainRole);
-                }));
-            console.log(filteredData)
-        }
-    }, [mainRole])
-
-    // React.useEffect(() =>{
-    //     if (role != null) {
-    //         console.log(role)
-    //         setFilteredData(
-    //             data.filter(prevData => {
-    //                 return prevData.roles.includes(role);
-    //             }));
-    //         console.log(filteredData)
-    //     }
-    // }, [role])
 
 
     const generateRandomHero = () => {
-        const randomHeroId = Math.floor(Math.random() * data.length) + 1;
-        setRandomHero(randomHeroId);
-        console.log(data)
 
+        let filteredData = data;
+        if (attackType != null) {
+            filteredData = filteredData.filter((item) => item.attack_type == attackType)
+        }
+        if (attr != null) {
+            filteredData = filteredData.filter((item) => item.primary_attr == attr)
+        }
+        if (mainRole != null) {
+            filteredData = filteredData.filter((item) => item.roles.includes(mainRole))
+        }
+        if (role.length > 0) {
+            filteredData = filteredData.filter((item) => role.every((r) => item.roles.includes(r)))
+        }
+        if (filteredData.length == 0) {
+            setRandomHero(undefined)
+        }
+        else {
+            setRandomHero(filteredData[Math.floor(Math.random() * filteredData.length)])
+        }
     }
+    console.log(attackType)
     return (
         <div className='generate'>
             <button onClick={generateRandomHero} className='generateButton'>Generate Random Hero</button>
+            {randomHero === undefined &&
+                <div className='errorMessage'>
+                    <p className='errorMessageParagraph'>
+                    The hero you are looking for does not exist
+                    </p>
+                </div>
+            }
             {randomHero != null && <div>
                 <div className='generateInner'>
                     <div className='generatedHero'>
                         <div className='generatedHeroTitle'>
-                            <h2>{data[randomHero].localized_name}</h2>
-                            <img src={"https://cdn.cloudflare.steamstatic.com/" + data[randomHero].icon}></img>
+                            <h2>{randomHero.localized_name}</h2>
+                            <img src={"https://cdn.cloudflare.steamstatic.com/" + randomHero.icon}></img>
                         </div>
                         <div className='generatedHeroContent'>
                             <div>
-                                <img src={"https://cdn.cloudflare.steamstatic.com/" + data[randomHero].img}></img>
+                                <img className='generatedHeroContentImg' src={"https://cdn.cloudflare.steamstatic.com/" + randomHero.img}></img>
                             </div>
                             <div className='heroInfo'>
                                 <div className='heroInfoInner'>
                                     <div>
                                         <img
-                                            src={data[randomHero].primary_attr == 'all' ? Universal
-                                                : data[randomHero].primary_attr == 'str' ? Strength
-                                                    : data[randomHero].primary_attr == 'agi' ? Agility
-                                                        : data[randomHero].primary_attr == 'int' ? Intelligence
-                                                            : ''}
-                                            title={
-                                                data[randomHero].primary_attr == 'all' ? "Universal"
-                                                    : data[randomHero].primary_attr == 'str' ? "Strength"
-                                                        : data[randomHero].primary_attr == 'agi' ? "Agility"
-                                                            : data[randomHero].primary_attr == 'int' ? "Intelligence"
-                                                                : ''}
+                                            src={attrImg[randomHero.primary_attr]}
+                                            title={attrTitle[randomHero.primary_attr]}
                                         >
                                         </img>
-                                        <p className='P'>{data[randomHero].primary_attr == 'all' ? "Universal"
-                                            : data[randomHero].primary_attr == 'str' ? "Strength"
-                                                : data[randomHero].primary_attr == 'agi' ? "Agility"
-                                                    : data[randomHero].primary_attr == 'int' ? "Intelligence"
-                                                        : ''
-                                        }</p>
+                                        <p className='P'>{attrTitle[randomHero.primary_attr]}</p>
                                     </div>
                                     <div>
                                         <img
-                                            src={data[randomHero].attack_type == "Ranged" ? Ranged : Melee}
-                                            title={data[randomHero].attack_type == "Ranged" ? "Ranged" : "Melee"}
+                                            src={randomHero.attack_type == "Ranged" ? Ranged : Melee}
+                                            title={randomHero.attack_type == "Ranged" ? "Ranged" : "Melee"}
                                         ></img>
-                                        <p>{data[randomHero].attack_type}</p>
+                                        <p>{randomHero.attack_type}</p>
                                     </div>
                                 </div>
                                 <div className='rolesInfo'>
-                                    {data[randomHero].roles.map((role, index) => (
+                                    {randomHero.roles.map((role, index) => (
                                         <div className='rolesInfoInner'>
                                             <img src=
                                                 {
-                                                    data[randomHero].roles[index] == 'Carry' ? Carry
-                                                        : data[randomHero].roles[index] == 'Support' ? Support
-                                                            : data[randomHero].roles[index] == 'Disabler' ? Disabler
-                                                                : data[randomHero].roles[index] == 'Durable' ? Durable
-                                                                    : data[randomHero].roles[index] == 'Escape' ? Escape
-                                                                        : data[randomHero].roles[index] == 'Initiator' ? Initiator
-                                                                            : data[randomHero].roles[index] == 'Nuker' ? Nuker
-                                                                                : data[randomHero].roles[index] == 'Pusher' ? Pusher : ''
+                                                    randomHero.roles[index] == 'Carry' ? Carry
+                                                        : randomHero.roles[index] == 'Support' ? Support
+                                                            : randomHero.roles[index] == 'Disabler' ? Disabler
+                                                                : randomHero.roles[index] == 'Durable' ? Durable
+                                                                    : randomHero.roles[index] == 'Escape' ? Escape
+                                                                        : randomHero.roles[index] == 'Initiator' ? Initiator
+                                                                            : randomHero.roles[index] == 'Nuker' ? Nuker
+                                                                                : randomHero.roles[index] == 'Pusher' ? Pusher
+                                                                                    : ''
                                                 }
                                                 title={
-                                                    data[randomHero].roles[index] == 'Carry' ? "Cary"
-                                                        : data[randomHero].roles[index] == 'Support' ? "Support"
-                                                            : data[randomHero].roles[index] == 'Disabler' ? "Disabler"
-                                                                : data[randomHero].roles[index] == 'Durable' ? "Durable"
-                                                                    : data[randomHero].roles[index] == 'Escape' ? "Escape"
-                                                                        : data[randomHero].roles[index] == 'Initiator' ? "Initiator"
-                                                                            : data[randomHero].roles[index] == 'Nuker' ? "Nuker"
-                                                                                : data[randomHero].roles[index] == 'Pusher' ? "Pusher" : ''
+                                                    randomHero.roles[index] == 'Carry' ? "Cary"
+                                                        : randomHero.roles[index] == 'Support' ? "Support"
+                                                            : randomHero.roles[index] == 'Disabler' ? "Disabler"
+                                                                : randomHero.roles[index] == 'Durable' ? "Durable"
+                                                                    : randomHero.roles[index] == 'Escape' ? "Escape"
+                                                                        : randomHero.roles[index] == 'Initiator' ? "Initiator"
+                                                                            : randomHero.roles[index] == 'Nuker' ? "Nuker"
+                                                                                : randomHero.roles[index] == 'Pusher' ? "Pusher"
+                                                                                    : ''
                                                 }
                                             ></img>
                                             <p key={index}>{role}</p>
@@ -167,13 +147,13 @@ export default function Data({ attackType, setAttackType, attr, setAttr, mainRol
                         <div className='rate'>
                             <div>
                                 <p>Pick Rate: </p>
-                                <p>{data[randomHero].pub_pick}</p>
+                                <p>{randomHero.pub_pick}</p>
                             </div>
                             <div>
                                 <p>Win Rate:</p>
                                 <div>
-                                    <p>{((data[randomHero].pub_win / data[randomHero].pub_pick) * 100) | 0}%</p>
-                                    <p>({data[randomHero].pub_win})</p>
+                                    <p>{((randomHero.pub_win / randomHero.pub_pick) * 100) | 0}%</p>
+                                    <p>({randomHero.pub_win})</p>
                                 </div>
                             </div>
                         </div>
