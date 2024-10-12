@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/Random-Dota-2-Heroes/static/css/main.7549b66b.css",
+    "main.js": "/Random-Dota-2-Heroes/static/js/main.c570b3df.js",
+    "static/js/453.aace3ac2.chunk.js": "/Random-Dota-2-Heroes/static/js/453.aace3ac2.chunk.js",
+    "static/media/greyfade.jpg": "/Random-Dota-2-Heroes/static/media/greyfade.5229ef58adb708f1bdd6.jpg",
+    "static/media/logo.svg": "/Random-Dota-2-Heroes/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/ranged.svg": "/Random-Dota-2-Heroes/static/media/ranged.5ac1340c55ff1e8f642c0501368c08fe.svg",
+    "static/media/melee.svg": "/Random-Dota-2-Heroes/static/media/melee.b70250ce6eb2e81b1253281132139094.svg",
+    "index.html": "/Random-Dota-2-Heroes/index.html",
+    "static/media/disabler_icon.webp": "/Random-Dota-2-Heroes/static/media/disabler_icon.9c5d7fa5e3ce46e1272c.webp",
+    "static/media/initiator_icon.webp": "/Random-Dota-2-Heroes/static/media/initiator_icon.fa190d6e62886800b714.webp",
+    "static/media/nuker_icon.webp": "/Random-Dota-2-Heroes/static/media/nuker_icon.47cbb38c4ab81cc31913.webp",
+    "static/media/escape_icon.webp": "/Random-Dota-2-Heroes/static/media/escape_icon.51978e73e635352ec63f.webp",
+    "static/media/pusher_icon.webp": "/Random-Dota-2-Heroes/static/media/pusher_icon.5e2a7461b26228e9c459.webp",
+    "static/media/durable_icon.webp": "/Random-Dota-2-Heroes/static/media/durable_icon.4fad40742c38cd359e60.webp",
+    "static/media/carry_icon.webp": "/Random-Dota-2-Heroes/static/media/carry_icon.235880c95a040ce8d0bd.webp",
+    "static/media/support_icon.webp": "/Random-Dota-2-Heroes/static/media/support_icon.b6995d1528b4f157d557.webp",
+    "main.7549b66b.css.map": "/Random-Dota-2-Heroes/static/css/main.7549b66b.css.map",
+    "main.c570b3df.js.map": "/Random-Dota-2-Heroes/static/js/main.c570b3df.js.map",
+    "453.aace3ac2.chunk.js.map": "/Random-Dota-2-Heroes/static/js/453.aace3ac2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7549b66b.css",
+    "static/js/main.c570b3df.js"
+  ]
+}
