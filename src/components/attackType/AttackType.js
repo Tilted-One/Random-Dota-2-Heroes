@@ -5,17 +5,12 @@ import Ranged from '../../images/ranged.svg'
 
 import style from './attackType.css'
 export default function AttackType({ attackType, setAttackType }) {
-
     return (
         <div className='attackType'>
             <h3 className='attackTypeText'>attack type</h3>
             <div className='attackTypeInner'>
-                <button value='Melee' className={`attackTypeButt ${(attackType == 'Melee' ? 'attackTypeButtActive' : '')}`} title='Melee' onClick={() => setAttackType(attackType == 'Melee' ? null : 'Melee')} >
-                    <img src={Melee} alt='Melee' ></img>
-                </button>
-                <button value='Ranged' className={`attackTypeButt ${(attackType == 'Ranged' ? 'attackTypeButtActive' : '')}`} title='Ranged' onClick={() => setAttackType(attackType == 'Ranged' ? null : 'Ranged')} >
-                    <img src={Ranged} alt='Ranged' ></img>
-                </button>
+                <Button state={attackType} setState={setAttackType} icon={Melee} value='Melee' title='Melee' butt='attackTypeButt' buttActive='attackTypeButtActive' />
+                <Button state={attackType} setState={setAttackType} icon={Ranged} value='Ranged' title='Ranged' butt='attackTypeButt' buttActive='attackTypeButtActive' />
             </div>
         </div>
     )

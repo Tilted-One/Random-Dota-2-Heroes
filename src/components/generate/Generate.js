@@ -32,7 +32,26 @@ const attrTitle = {
     'int': 'Intelligence'
 }
 
-
+const rolesImg = {
+    'Carry': Carry,
+    'Support': Support,
+    'Disabler': Disabler,
+    'Durable': Durable,
+    'Escape': Escape,
+    'Initiator': Initiator,
+    'Nuker': Nuker,
+    'Pusher': Pusher,
+}
+const rolesTitle = {
+    'Carry': 'Carry',
+    'Support': 'Support',
+    'Disabler': 'Disabler',
+    'Durable': 'Durable',
+    'Escape': 'Escape',
+    'Initiator': 'Initiator',
+    'Nuker': 'Nuker',
+    'Pusher': 'Pusher',
+}
 export default function Data({ attackType, attr, mainRole, role }) {
 
     const [data, setData] = React.useState(null)
@@ -70,14 +89,13 @@ export default function Data({ attackType, attr, mainRole, role }) {
             setRandomHero(filteredData[Math.floor(Math.random() * filteredData.length)])
         }
     }
-    console.log(attackType)
     return (
         <div className='generate'>
             <button onClick={generateRandomHero} className='generateButton'>Generate Random Hero</button>
             {randomHero === undefined &&
                 <div className='errorMessage'>
                     <p className='errorMessageParagraph'>
-                    The hero you are looking for does not exist
+                        The hero you are looking for does not exist
                     </p>
                 </div>
             }
@@ -113,29 +131,9 @@ export default function Data({ attackType, attr, mainRole, role }) {
                                 <div className='rolesInfo'>
                                     {randomHero.roles.map((role, index) => (
                                         <div className='rolesInfoInner'>
-                                            <img src=
-                                                {
-                                                    randomHero.roles[index] == 'Carry' ? Carry
-                                                        : randomHero.roles[index] == 'Support' ? Support
-                                                            : randomHero.roles[index] == 'Disabler' ? Disabler
-                                                                : randomHero.roles[index] == 'Durable' ? Durable
-                                                                    : randomHero.roles[index] == 'Escape' ? Escape
-                                                                        : randomHero.roles[index] == 'Initiator' ? Initiator
-                                                                            : randomHero.roles[index] == 'Nuker' ? Nuker
-                                                                                : randomHero.roles[index] == 'Pusher' ? Pusher
-                                                                                    : ''
-                                                }
-                                                title={
-                                                    randomHero.roles[index] == 'Carry' ? "Cary"
-                                                        : randomHero.roles[index] == 'Support' ? "Support"
-                                                            : randomHero.roles[index] == 'Disabler' ? "Disabler"
-                                                                : randomHero.roles[index] == 'Durable' ? "Durable"
-                                                                    : randomHero.roles[index] == 'Escape' ? "Escape"
-                                                                        : randomHero.roles[index] == 'Initiator' ? "Initiator"
-                                                                            : randomHero.roles[index] == 'Nuker' ? "Nuker"
-                                                                                : randomHero.roles[index] == 'Pusher' ? "Pusher"
-                                                                                    : ''
-                                                }
+                                            <img
+                                                src={rolesImg[randomHero.roles[index]]}
+                                                title={rolesTitle[randomHero.roles[index]] }
                                             ></img>
                                             <p key={index}>{role}</p>
                                         </div>

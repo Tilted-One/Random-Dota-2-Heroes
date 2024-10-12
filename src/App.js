@@ -12,7 +12,6 @@ function App() {
   const [mainRole, setMainRole] = React.useState(null)
   const [role, setRole] = React.useState([])
 
-  console.log(role)
   return (
     <div className="App">
       <Header

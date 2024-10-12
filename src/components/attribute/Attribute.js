@@ -7,24 +7,17 @@ import Universal from '../../images/hero_universal.png'
 
 import style from './attribute.css'
 
+import Button from "../button/Button";
 export default function Attribute({ attr, setAttr }) {
 
     return (
         <div className='attribute'>
             <h3 className='attributeText'>attribute</h3>
             <div className='attributeInner'>
-                <button value='all' onClick={() => setAttr(attr == 'all' ? null : 'all')} className={`attr ${(attr == 'all' ? 'attrActive' : '')}`} title='Universal'>
-                    <img src={Universal} alt='Universal_Attr'></img>
-                </button>
-                <button value='str' onClick={() => setAttr(attr == 'str' ? null : 'str')} className={`attr ${(attr == 'str' ? 'attrActive' : '')}`} title='Strength'>
-                    <img src={Strength} alt='Strength_Attr'></img>
-                </button>
-                <button value='agi' onClick={() => setAttr(attr == 'agi' ? null : 'agi')} className={`attr ${(attr == 'agi' ? 'attrActive' : '')}`} title='Agility'>
-                    <img src={Agility} alt='Agility_Attr'></img>
-                </button>
-                <button value='int' onClick={() => setAttr(attr == 'int' ? null : 'int')} className={`attr ${(attr == 'int' ? 'attrActive' : '')}`} title='Intelligence'>
-                    <img src={Intelligence} alt='Intelligence_Attr'></img>
-                </button>
+                <Button state={attr} setState={setAttr} icon={Universal} value='all' title='Universal' butt='attr' buttActive='attrActive' />
+                <Button state={attr} setState={setAttr} icon={Strength} value='str' title='Strength' butt='attr' buttActive='attrActive' />
+                <Button state={attr} setState={setAttr} icon={Agility} value='agi' title='Agility' butt='attr' buttActive='attrActive' />
+                <Button state={attr} setState={setAttr} icon={Intelligence} value='int' title='Intelligence' butt='attr' buttActive='attrActive' />
             </div>
         </div>
     )
