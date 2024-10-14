@@ -58,12 +58,21 @@ export default function Data({ attackType, attr, mainRole, role }) {
     const [randomHero, setRandomHero] = React.useState(null)
 
     React.useEffect(() => {
-        fetch('https://api.opendota.com/api/heroStats')
-            .then(response => response.json())
-            .then(data => {
-                setData(data)
-            })
-    }, [1])
+        const fetchData = async () => {
+            try {
+                const response = await fetch('https://api.opendota.com/api/heroStats');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const result = await response.json();
+                setData(result);
+            } catch (error) {
+                console.error('Fetch operation error:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
 
 
@@ -133,7 +142,7 @@ export default function Data({ attackType, attr, mainRole, role }) {
                                         <div className='rolesInfoInner'>
                                             <img
                                                 src={rolesImg[randomHero.roles[index]]}
-                                                title={rolesTitle[randomHero.roles[index]] }
+                                                title={rolesTitle[randomHero.roles[index]]}
                                             ></img>
                                             <p key={index}>{role}</p>
                                         </div>
