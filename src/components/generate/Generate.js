@@ -97,6 +97,8 @@ export default function Data({ attackType, attr, mainRole, role }) {
         else {
             setRandomHero(filteredData[Math.floor(Math.random() * filteredData.length)])
         }
+        console.log(mainRole)
+console.log(filteredData)
     }
     return (
         <div className='generate'>

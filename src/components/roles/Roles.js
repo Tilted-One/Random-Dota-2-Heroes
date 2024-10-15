@@ -20,7 +20,7 @@ export default function Roles({ mainRole, setMainRole, role, setRole }) {
             <div className='rollesInner'>
 
                 <Button state={mainRole} setState={setMainRole} icon={Carry} value='Carry' title='Carry' butt='mainRoleButton' buttActive='mainRoleButtonActive' />
-                <Button state={mainRole} setState={setMainRole} icon={Support} value='Suport' title='Suport' butt='mainRoleButton' buttActive='mainRoleButtonActive' />
+                <Button state={mainRole} setState={setMainRole} icon={Support} value='Support' title='Support' butt='mainRoleButton' buttActive='mainRoleButtonActive' />
                 <span></span>
 
                 <RoleButton role={role} setRole={setRole} icon={Disabler} value='Disabler' />
