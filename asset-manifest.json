@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Random-Dota-2-Heroes/static/css/main.7549b66b.css",
-    "main.js": "/Random-Dota-2-Heroes/static/js/main.6177be96.js",
+    "main.js": "/Random-Dota-2-Heroes/static/js/main.6574c754.js",
     "static/js/453.aace3ac2.chunk.js": "/Random-Dota-2-Heroes/static/js/453.aace3ac2.chunk.js",
     "static/media/greyfade.jpg": "/Random-Dota-2-Heroes/static/media/greyfade.5229ef58adb708f1bdd6.jpg",
     "static/media/logo.svg": "/Random-Dota-2-Heroes/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
@@ -17,11 +17,11 @@
     "static/media/carry_icon.webp": "/Random-Dota-2-Heroes/static/media/carry_icon.235880c95a040ce8d0bd.webp",
     "static/media/support_icon.webp": "/Random-Dota-2-Heroes/static/media/support_icon.b6995d1528b4f157d557.webp",
     "main.7549b66b.css.map": "/Random-Dota-2-Heroes/static/css/main.7549b66b.css.map",
-    "main.6177be96.js.map": "/Random-Dota-2-Heroes/static/js/main.6177be96.js.map",
+    "main.6574c754.js.map": "/Random-Dota-2-Heroes/static/js/main.6574c754.js.map",
     "453.aace3ac2.chunk.js.map": "/Random-Dota-2-Heroes/static/js/453.aace3ac2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7549b66b.css",
-    "static/js/main.6177be96.js"
+    "static/js/main.6574c754.js"
   ]
 }
