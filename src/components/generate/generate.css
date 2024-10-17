@@ -184,8 +184,11 @@
         align-items: center;
     }
     .rolesInfo{
-        padding: 0 8px;
+        padding: 4px 8px;
         width: auto;
+    }
+    .rolesInfoInner{
+        margin-inline-end: 16px;
     }
     .rate{
         flex-direction: column;
